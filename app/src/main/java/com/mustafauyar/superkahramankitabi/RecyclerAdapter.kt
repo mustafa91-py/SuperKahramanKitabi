@@ -10,8 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import org.w3c.dom.Text
 
 class RecyclerAdapter(
-    val kahramanListesi : ArrayList<String>,
-    val kahramanBitmaps:ArrayList<Int> ) : RecyclerView.Adapter<RecyclerAdapter.SuperKahramanVH>(){
+    val kahramanHashMap : HashMap<String,Int>) : RecyclerView.Adapter<RecyclerAdapter.SuperKahramanVH>(){
 
     class SuperKahramanVH(itemView:View) :RecyclerView.ViewHolder(itemView) {
 
@@ -23,18 +22,18 @@ class RecyclerAdapter(
     }
 
     override fun getItemCount(): Int {
-        return kahramanListesi.size
+        return kahramanHashMap.size
 
     }
 
     override fun onBindViewHolder(holder: SuperKahramanVH, position: Int) {
+        val kahramanListesi = kahramanHashMap.keys.toList()
         holder.itemView.findViewById<TextView>(R.id.recyclerViewTextView).text = kahramanListesi[position]
+
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context,TanitimActivity::class.java)
             intent.putExtra("kahraman",kahramanListesi[position])
-            intent.putExtra("kahramanGorsel",kahramanBitmaps[position])
-//            val singleton = SingletonClass.superKahraman
-//            singleton.image = kahramanBitmaps.get(position)
+            intent.putExtra("kahramanGorsel", kahramanHashMap[kahramanListesi[position]])
 
             holder.itemView.context.startActivity(intent)
         }
