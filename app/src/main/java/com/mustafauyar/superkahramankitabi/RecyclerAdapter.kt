@@ -1,5 +1,6 @@
 package com.mustafauyar.superkahramankitabi
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.View
@@ -28,5 +29,10 @@ class RecyclerAdapter(
 
     override fun onBindViewHolder(holder: SuperKahramanVH, position: Int) {
         holder.itemView.findViewById<TextView>(R.id.recyclerViewTextView).text = kahramanListesi[position]
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context,TanitimActivity::class.java)
+            intent.putExtra("kahraman",kahramanListesi[position])
+            holder.itemView.context.startActivity(intent)
+        }
     }
 }
