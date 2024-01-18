@@ -32,6 +32,9 @@ class RecyclerAdapter(
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context,TanitimActivity::class.java)
             intent.putExtra("kahraman",kahramanListesi[position])
+            val singleton = SingletonClass.superKahraman
+            singleton.image = kahramanBitmaps.get(position)
+
             holder.itemView.context.startActivity(intent)
         }
     }
