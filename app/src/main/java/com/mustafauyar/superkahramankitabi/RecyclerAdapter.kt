@@ -11,7 +11,7 @@ import org.w3c.dom.Text
 
 class RecyclerAdapter(
     val kahramanListesi : ArrayList<String>,
-    val kahramanBitmaps:ArrayList<Bitmap> ) : RecyclerView.Adapter<RecyclerAdapter.SuperKahramanVH>(){
+    val kahramanBitmaps:ArrayList<Int> ) : RecyclerView.Adapter<RecyclerAdapter.SuperKahramanVH>(){
 
     class SuperKahramanVH(itemView:View) :RecyclerView.ViewHolder(itemView) {
 
@@ -32,8 +32,9 @@ class RecyclerAdapter(
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context,TanitimActivity::class.java)
             intent.putExtra("kahraman",kahramanListesi[position])
-            val singleton = SingletonClass.superKahraman
-            singleton.image = kahramanBitmaps.get(position)
+            intent.putExtra("kahramanGorsel",kahramanBitmaps[position])
+//            val singleton = SingletonClass.superKahraman
+//            singleton.image = kahramanBitmaps.get(position)
 
             holder.itemView.context.startActivity(intent)
         }

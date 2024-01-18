@@ -1,4 +1,5 @@
 package com.mustafauyar.superkahramankitabi
+import android.graphics.BitmapFactory
 import com.mustafauyar.superkahramankitabi.databinding.ActivityTanitimBinding
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,8 +14,11 @@ class TanitimActivity : AppCompatActivity() {
         val intent = intent
         val secilenKahraman = intent.getStringExtra("kahraman")
         binding.textView.text = secilenKahraman.toString()
+        val secilenKahramanGorsel = intent.getIntExtra("kahramanGorsel",R.drawable.four_arm)
+        val imageToCache = BitmapFactory.decodeResource(applicationContext.resources,secilenKahramanGorsel)
+        binding.imageView.setImageBitmap(imageToCache)
 
-        val secilenKahramanGorsel = SingletonClass.superKahraman.image
-        binding.imageView.setImageBitmap(secilenKahramanGorsel)
+//        val secilenKahramanGorsel = SingletonClass.superKahraman.image
+//        binding.imageView.setImageBitmap(secilenKahramanGorsel)
     }
 }

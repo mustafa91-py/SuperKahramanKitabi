@@ -14,12 +14,26 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         var superKahramanListesi = ArrayList<String>()
         superKahramanListesi.add("ironman")
         superKahramanListesi.add("batman")
         superKahramanListesi.add("joker")
         superKahramanListesi.add("samurai jack")
         superKahramanListesi.add("dört kol")
+
+        val ironman = R.drawable.ironman
+        val batman = R.drawable.batman
+        val joker = R.drawable.joker
+        val samuraiJack = R.drawable.samurai_jack
+        val fourArms = R.drawable.four_arm
+        val kahramanIntListesi = ArrayList<Int>()
+        kahramanIntListesi.add(ironman)
+        kahramanIntListesi.add(batman)
+        kahramanIntListesi.add(joker)
+        kahramanIntListesi.add(samuraiJack)
+        kahramanIntListesi.add(fourArms)
+        /*
         val ironmanBitmap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.ironman)
         val batmanBitmap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.batman)
         val jokerBitmap = BitmapFactory.decodeResource(applicationContext.resources,R.drawable.joker)
@@ -30,11 +44,12 @@ class MainActivity : AppCompatActivity() {
         superKahramanBitmaps.add(batmanBitmap)
         superKahramanBitmaps.add(jokerBitmap)
         superKahramanBitmaps.add(samuraiJackBitmap)
-        superKahramanBitmaps.add(fourArmBitmap)
+        superKahramanBitmaps.add(fourArmBitmap)*/
+
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        val adapter = RecyclerAdapter(superKahramanListesi,superKahramanBitmaps)
+        val adapter = RecyclerAdapter(superKahramanListesi,kahramanIntListesi)
         binding.recyclerView.adapter = adapter
     }
 }
