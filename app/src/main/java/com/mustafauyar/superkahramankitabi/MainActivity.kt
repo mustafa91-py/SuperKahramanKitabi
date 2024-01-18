@@ -5,6 +5,7 @@ import com.mustafauyar.superkahramankitabi.databinding.ActivityMainBinding
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -30,6 +31,10 @@ class MainActivity : AppCompatActivity() {
         superKahramanBitmaps.add(jokerBitmap)
         superKahramanBitmaps.add(samuraiJackBitmap)
         superKahramanBitmaps.add(fourArmBitmap)
+
+        val layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.layoutManager = layoutManager
         val adapter = RecyclerAdapter(superKahramanListesi,superKahramanBitmaps)
+        binding.recyclerView.adapter = adapter
     }
 }
