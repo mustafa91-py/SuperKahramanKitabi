@@ -30,5 +30,6 @@ class MainActivity : AppCompatActivity() {
         superKahramanBitmaps.add(jokerBitmap)
         superKahramanBitmaps.add(samuraiJackBitmap)
         superKahramanBitmaps.add(fourArmBitmap)
+        val adapter = RecyclerAdapter(superKahramanListesi,superKahramanBitmaps)
     }
 }
